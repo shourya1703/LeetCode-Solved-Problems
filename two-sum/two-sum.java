@@ -1,22 +1,14 @@
-import java.util.Arrays;
-
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        
-        List<Integer> list=new ArrayList<>();
-         int[] indexarray=new int[2];
+        Map<Integer,Integer> m1=new HashMap<>();
         for(int i=0;i<nums.length;i++){
-           list.add(nums[i]);
-       }
-     for(int j=0;j<list.size();j++){
-         int temp=target-list.get(j);
-         if(list.contains(temp)){
-             int m=list.indexOf(temp);
-             indexarray[0]=j;
-             indexarray[1]=m;
-             }
-         
-     }
-        return indexarray;
+            if(m1.containsKey(nums[i])){
+                return new int[]{i,m1.get(nums[i])};
+            }
+            else{
+                m1.put(target-nums[i],i);
+            }
+        }
+        return new int[]{};
     }
 }
