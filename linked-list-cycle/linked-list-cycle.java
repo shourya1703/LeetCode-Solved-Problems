@@ -1,21 +1,23 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        // using single pointer for head and slow helps in lower memory consumption
-        // ListNode slow = head;
-        ListNode fast = head;
-        
-        while(head != null && fast != null){
-            head = head.next;
-            if(fast.next != null){
-                fast = fast.next.next;
-            } else {
-                break;
-            }
-            if(fast == head){
+        while (head != null) {
+            if (head.val == -1000000000) {
                 return true;
             }
+            head.val = -1000000000;
+            head = head.next;
         }
         return false;
-        
     }
 }
