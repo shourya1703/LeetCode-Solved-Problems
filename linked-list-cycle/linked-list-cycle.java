@@ -11,13 +11,16 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        while (head != null) {
-            if (head.val == -1000000000) {
+        if(head==null || head.next==null){return false;}
+        ListNode first=head;
+        ListNode sec=head;
+        while(first!=null && sec !=null && sec.next!=null){
+            first=first.next;
+            sec=sec.next.next;
+            if(first==sec){
                 return true;
             }
-            head.val = -1000000000;
-            head = head.next;
-        }
+          }
         return false;
     }
 }
